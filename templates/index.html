@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Churn Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center text-primary mb-4">Employee Churn Prediction</h1>
+        <p class="text-center mb-5">Predict whether an employee will stay or leave based on various factors.</p>
+        <div class="card shadow-lg p-4">
+            <form id="churnForm" action="/predict" method="post" novalidate>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="satisfaction_level" class="form-label">Satisfaction Level (0-1)</label>
+                        <input type="number" step="0.01" class="form-control" name="satisfaction_level" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="last_evaluation" class="form-label">Last Evaluation (0-1)</label>
+                        <input type="number" step="0.01" class="form-control" name="last_evaluation" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="number_projects" class="form-label">Number of Projects</label>
+                        <input type="number" class="form-control" name="number_projects" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="daily_hours" class="form-label">Daily Hours</label>
+                        <input type="number" class="form-control" name="daily_hours" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="time_spend_company" class="form-label">Time Spent at Company (Years)</label>
+                        <input type="number" class="form-control" name="time_spend_company" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Work_accident" class="form-label">Work Accident (0 or 1)</label>
+                        <input type="number" class="form-control" name="Work_accident" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="promotion_last_5years" class="form-label">Promotion in Last 5 Years (0 or 1)</label>
+                        <input type="number" class="form-control" name="promotion_last_5years" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Departments" class="form-label">Departments (1-10)</label>
+                        <input type="number" class="form-control" name="Departments" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="salary" class="form-label">Salary (1-3)</label>
+                        <input type="number" class="form-control" name="salary" required>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Predict</button>
+                </div>
+            </form>
+            <!-- Dynamic result section -->
+            <div id="result" class="mt-4 text-center"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
